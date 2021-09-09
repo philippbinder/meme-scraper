@@ -34,7 +34,7 @@ Correct GitHub commit message format (see Writing Commit Messages)
 
 TODOS
 
-Create a new repository on GitHub
+Create a new repository on GitHub /br
 Follow all remaining steps in the cheatsheet
 Create a folder called memes
 Make a .gitignore file with a line in it with the text memes
