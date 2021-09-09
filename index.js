@@ -8,6 +8,9 @@ can I use the fetch() method to gather the data?
 https://nodejs.org/api/fs.html#fs_fs_mkdir_path_options_callback
 https://www.geeksforgeeks.org/node-js-fs-mkdir-method/
 
+- fetch html from meme webside
+- take the html fetched as a string and transform in into something usefel - do this with Cheerio
+
 
 -----------------------  I M P O R T A N T  -----------------------
 installed dependancies:
@@ -29,28 +32,22 @@ import fetch from 'node-fetch';
 */
 import fs from 'fs';
 import fetch from 'node-fetch';
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
-
 // //idea: import node-fetch from package.json
 // const fs = require('fs');
 // const path = require('path');
-
-const currentDir = dirname(fileURLToPath(import.meta.url));
-
-fs.mkdir(path.join(currentDir, 'memes'), (err) => {
+// const currentDir = dirname(fileURLToPath(import.meta.url));
+/* fs.mkdir(path.join(currentDir, 'memes'), (err) => {
   if (err) {
     return console.error(err);
   }
   console.log('Directory created successfully!');
-});
-
-/*
-import { dirname } from 'path';
+if not err don't show anything
+}); */
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-*/
+
 // creates new dir ond users PC
 
 /*
@@ -60,6 +57,17 @@ import getCookie from './util/cookies/getCookie.js';
 // const getCookie = require('./util/cookies/getCookie.js');
 */
 
-fetch('https://memegen-link-examples-upleveled.netlify.app.json')
-  .then((response) => response.json())
+fetch('https://memegen-link-examples-upleveled.netlify.app/')
+  .then((response) => response.text()) // Die Webside ist utner inspect html text
   .then((data) => console.log(data));
+
+// fetch needs await before the code can continue - async await und anschließend library finden die mir den html string in etwas brauchbares umwandelt. Irgendwann muss das Ergebnis in einer Variable gespeichert werden. Braucche Cheerio um den String dess HTML-Textes den ich bekomme in etwas umzuwnadeln mit dem ich arbeiten kann.
+
+// const url = 'https://memegen-link-examples-upleveled.netlify.app.json';
+// async function download() {
+//   const response = await fetch(url);
+//   const buffer = await response.buffer();
+//   fs.writeFile(`./image.jpg`, buffer, () =>
+//     console.log('finished downloading!'),
+//   );
+// }
