@@ -4,4 +4,5 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store\n.eslintcache
 memes\n.eslintcache
+backup
 memes
