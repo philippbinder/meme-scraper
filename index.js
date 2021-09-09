@@ -32,21 +32,23 @@ import fetch from 'node-fetch';
 */
 import fs from 'fs';
 import fetch from 'node-fetch';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+
 // //idea: import node-fetch from package.json
 // const fs = require('fs');
 // const path = require('path');
-// const currentDir = dirname(fileURLToPath(import.meta.url));
-/* fs.mkdir(path.join(currentDir, 'memes'), (err) => {
+const currentDir = dirname(fileURLToPath(import.meta.url));
+fs.mkdir(path.join(currentDir, 'memes'), (err) => {
   if (err) {
     return console.error(err);
   }
   console.log('Directory created successfully!');
-if not err don't show anything
-}); */
-import path, { dirname } from 'path';
-import { fileURLToPath } from 'url';
+  // if not err don't show anything
+});
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+// __dirname yellow line will disappear once I recomment the creation of the memes dir in
 
 // creates new dir ond users PC
 
@@ -57,9 +59,10 @@ import getCookie from './util/cookies/getCookie.js';
 // const getCookie = require('./util/cookies/getCookie.js');
 */
 
-fetch('https://memegen-link-examples-upleveled.netlify.app/')
-  .then((response) => response.text()) // Die Webside ist utner inspect html text
-  .then((data) => console.log(data));
+fetch('https://memegen-link-examples-upleveled.netlify.app/').then((response) =>
+  response.text(),
+); // Die Webside ist utner inspect html text
+// .then((data) => console.log(data));
 
 // fetch needs await before the code can continue - async await und anschließend library finden die mir den html string in etwas brauchbares umwandelt. Irgendwann muss das Ergebnis in einer Variable gespeichert werden. Braucche Cheerio um den String dess HTML-Textes den ich bekomme in etwas umzuwnadeln mit dem ich arbeiten kann.
 
@@ -71,3 +74,4 @@ fetch('https://memegen-link-examples-upleveled.netlify.app/')
 //     console.log('finished downloading!'),
 //   );
 // }
+console.log('test');
