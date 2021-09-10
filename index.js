@@ -24,6 +24,8 @@ miscellaneous:
   Meme Webside https://memegen-link-examples-upleveled.netlify.app/ - webside to fetch the memes from
 */
 
+import * as cheerio from 'cheerio';
+// or without "* as"?
 // idea: import node-fetch from package.json
 // const fs = require('fs');
 // const path = require('path');
@@ -60,12 +62,39 @@ import getCookie from './util/cookies/getCookie.js';
 // const getCookie = require('./util/cookies/getCookie.js');
 */
 
-const fetchedText = fetch(
+// const fetchedText = fetch(
+//   'https://memegen-link-examples-upleveled.netlify.app/',
+// )
+//   .then((response) => response.text()) // Die Webside ist unter inspect html text
+//   .then((data) => console.log(data));
+// console.log(fetchedText);
+// Working fetch request and console log
+
+// fetches teh wabpage
+const response = await fetch(
   'https://memegen-link-examples-upleveled.netlify.app/',
-).then((response) => response.text()); // Die Webside ist unter inspect html text
-// .then((data) => console.log(data));
-console.log(fetchedText);
+);
+
+// time to tell cheerio to make something useful with the string fetched in the command above
+const body = await response.text();
+
+const $ = cheerio.load(body);
+
+$('h2.title').text('Hello there!');
+$('h2').addClass('welcome');
+
+$.html();
+//=> <html><head></head><body><h2 class="title welcome">Hello there!</h2></body></html>
+
+// $(body);
+// $.root().html();
+// unnötig da ich nicht ide ganze Webside will?
+
+// console.log(body);
+
 /*
+Remove variable to avoid promise pending - but shouldn't I work around that?
+
 Without console.log:
 fetch('https://memegen-link-examples-upleveled.netlify.app/').then((response) =>
    response.text(),
@@ -75,9 +104,15 @@ fetch('https://memegen-link-examples-upleveled.netlify.app/').then((response) =>
   response.text().then((data) => console.log(data)),
   );
 
+
+
+
+  ----------------------------------------------------------------------------------------------------------
+ fetch needs await before the code can continue - async await und anschließend library (cheerio) finden die mir den html string in etwas brauchbares umwandelt. Irgendwann muss das Ergebnis in einer Variable gespeichert werden. Braucche Cheerio um den String dess HTML-Textes den ich bekomme in etwas umzuwnadeln mit dem ich arbeiten kann.
+
  */
 
-// fetch needs await before the code can continue - async await und anschließend library (cheerio) finden die mir den html string in etwas brauchbares umwandelt. Irgendwann muss das Ergebnis in einer Variable gespeichert werden. Braucche Cheerio um den String dess HTML-Textes den ich bekomme in etwas umzuwnadeln mit dem ich arbeiten kann.
+console.log('test');
 
 // const url = 'https://memegen-link-examples-upleveled.netlify.app.json';
 // async function download() {
