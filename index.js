@@ -75,16 +75,15 @@ const response = await fetch(
   'https://memegen-link-examples-upleveled.netlify.app/',
 );
 
-// time to tell cheerio to make something useful with the string fetched in the command above
 const body = await response.text();
 
+// load the const body into cheerio
 const $ = cheerio.load(body);
 
-$('h2.title').text('Hello there!');
-$('h2').addClass('welcome');
+// console.log($.html()); = evidence that the comamnd above works
 
 $.html();
-//=> <html><head></head><body><h2 class="title welcome">Hello there!</h2></body></html>
+// => <html><head></head><body><h2 class="title welcome">Hello there!</h2></body></html>
 
 // $(body);
 // $.root().html();
