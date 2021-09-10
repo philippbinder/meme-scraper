@@ -4,25 +4,27 @@ Idea: Create a command that goes for the src in <img> in <div>, maybe saves it u
 
 can I use the fetch() method to gather the data?
 
-- find a way to (auto)-create a "memes"-folder on other PC's so that other users can download and use my file.
+- find a way to (auto)-create a "memes"-dir on other PC's so that other users can download and use my file.
 https://nodejs.org/api/fs.html#fs_fs_mkdir_path_options_callback
 https://www.geeksforgeeks.org/node-js-fs-mkdir-method/
-
 - fetch html from meme webside
 - take the html fetched as a string and transform in into something usefel - do this with Cheerio
 
+Ignes inpuit:
+ fetch needs await before the code can continue - async await und anschließend library (cheerio) finden die mir den html string in etwas brauchbares umwandelt. Irgendwann muss das Ergebnis in einer Variable gespeichert werden. Braucche Cheerio um den String dess HTML-Textes den ich bekomme in etwas umzuwnadeln mit dem ich arbeiten kann.
 
 -----------------------  I M P O R T A N T  -----------------------
 installed dependancies:
   - Node Fetch https://www.npmjs.com/package/node-fetch - for fechting the images from the meme page
   - ESM https://reactgo.com/node-es6-imports/ - for making Node Fetch work - not used???
   - maybe instead https://www.npmjs.com/package/esm
-  - Cheerio https://www.npmjs.com/package/cheerio
+  - Cheerio https://www.npmjs.com/package/cheerio - takes the html text and allows me fo filter for specific elements by using CSS-selectors
 
 miscellaneous:
-  https://www.geeksforgeeks.org/node-js-fs-mkdir-method/ - shows me the code I need to write for dir on other PC's who use my file
-  Meme Webside https://memegen-link-examples-upleveled.netlify.app/ - webside to fetch the memes from
-  Avoid __dirname not available error: https://stackoverflow.com/questions/46745014/alternative-for-dirname-in-node-when-using-the-experimental-modules-flag
+  - https://www.geeksforgeeks.org/node-js-fs-mkdir-method/ - shows me the code I need to write for dir on other PC's who use my file
+  - Meme Webside https://memegen-link-examples-upleveled.netlify.app/ - webside to fetch the memes from
+  - Avoid __dirname not available error: https://stackoverflow.com/questions/46745014/alternative-for-dirname-in-node-when-using-the-experimental-modules-flag
+  - Create links out of the html text: https://stackoverflow.com/questions/51010849/string-to-array-node-js-javascript
 */
 
 import * as cheerio from 'cheerio';
@@ -77,16 +79,19 @@ const $ = cheerio.load(body);
 // Der untere Code sucht alle images raus die Kinder (also auch Enkelkinder) von #images (section im html text) sind und speichert sie unter der const images. Anschließend müssen diese in ein array umgewandelt werden damit ich anschließend die ersten 10 raussuchen kann.
 const images = $('#images img');
 // render  the document
-console.log($.html(images));
+// console.log($.html(images));
+
+const images2 = $.html(images);
+const images3 = images2.trim();
+console.log(images3);
+// const arr = images3.split(' '); // https://stackoverflow.com/questions/51010849/string-to-array-node-js-javascript
+// console.log(arr[1]);
+
+// -----------------
+// const trimedImages = images2.trim();
+// console.log(trimedImages);
 // find string.trim() to transform the images into an array
 // for ( i= 0, i < 10, i++) {}
-
-/*
-  ----------------------------------------------------------------------------------------------------------
- fetch needs await before the code can continue - async await und anschließend library (cheerio) finden die mir den html string in etwas brauchbares umwandelt. Irgendwann muss das Ergebnis in einer Variable gespeichert werden. Braucche Cheerio um den String dess HTML-Textes den ich bekomme in etwas umzuwnadeln mit dem ich arbeiten kann.
- */
-
-console.log('test');
 
 // const url = 'https://memegen-link-examples-upleveled.netlify.app.json';
 // async function download() {
@@ -102,3 +107,5 @@ console.log('test');
   -> makes me wonder if it this is necessary in the first place or is it sufficient to not be shown in the console?
 - created a backup dir in the projects dir containing a fall-back version of the index.js file
 */
+const testArray = 'Null ' + 'Eins ' + 'Zwei ' + 'Drei';
+console.log(testArray[0]);
