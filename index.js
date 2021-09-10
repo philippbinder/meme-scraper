@@ -82,10 +82,14 @@ const images = $('#images img');
 // console.log($.html(images));
 
 const images2 = $.html(images);
-const images3 = images2.trim();
-console.log(images3);
+console.log(images2);
+
+const srcArray = images2.map();
+// ------------------------------------------
+// const images3 = images2.trim();
+// console.log(images3);
 // const arr = images3.split(' '); // https://stackoverflow.com/questions/51010849/string-to-array-node-js-javascript
-// console.log(arr[1]);
+// console.log(arr);
 
 // -----------------
 // const trimedImages = images2.trim();
@@ -107,5 +111,11 @@ console.log(images3);
   -> makes me wonder if it this is necessary in the first place or is it sufficient to not be shown in the console?
 - created a backup dir in the projects dir containing a fall-back version of the index.js file
 */
-const testArray = 'Null ' + 'Eins ' + 'Zwei ' + 'Drei';
-console.log(testArray[0]);
+// const testArray = 'Null ' + 'Eins ' + 'Zwei ' + 'Drei';
+// console.log(testArray[0]);
+
+// const a1 = ['String', 'String2'];
+// console.log(a1[0]);
+
+// const a2 = 'Null';
+// console.log(a2[0]);
