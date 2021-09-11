@@ -111,12 +111,14 @@ for (let i = 1; i < arr.length; i++) {
     break;
   }
 }
-
-const links = for (let i = 1; i < arr.length; i++) {
-  if (i === 10) {
-    break;
+const loop = () => {
+  for (let i = 1; i < arr.length; i++) {
+    if (i === 10) {
+      break;
+    }
   }
-}
+};
+console.log(loop);
 // Finally!!! Break out of loop based on array index src= "https://betterprogramming.pub/three-ways-to-exit-an-array-loop-before-completion-in-javascript-56cc6ffff820"
 
 // console.log(arr[i]);
