@@ -82,9 +82,25 @@ const images = $('#images img');
 // console.log($.html(images));
 
 const images2 = $.html(images);
-console.log(images2);
+// console.log(images2);
 
-const srcArray = images2.map();
+// const srcArray = images2.map((irrelevantFunctionName) => {
+//   return (for (let i ) )
+// });
+
+// const images3 = images2.trim();
+// console.log(images3);
+const arr = images2.split(' '); // https://stackoverflow.com/questions/51010849/string-to-array-node-js-javascript
+console.log(arr);
+
+// const srcArray = arr.map((functionName) => {
+//   for (let i = 0; i < 10; i++) {
+//     // document.getElementsByTagName('src'); // doucment is not defined
+//   }
+// });
+
+// console.log(srcArray);
+
 // ------------------------------------------
 // const images3 = images2.trim();
 // console.log(images3);
