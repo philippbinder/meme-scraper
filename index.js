@@ -83,15 +83,47 @@ const images = $('#images img');
 
 const images2 = $.html(images);
 // console.log(images2);
+// const objToArray = Object.values(images2);
+// https://www.javascripttutorial.net/object/convert-an-object-to-an-array-in-javascript/
+// console.log(objToArray);
+
+// const images3 = function convertToFunction(a) {
+//   return (a = images2);
+// };
+// console.log(images3);
 
 // const srcArray = images2.map((irrelevantFunctionName) => {
 //   return (for (let i ) )
 // });
 
-// const images3 = images2.trim();
-// console.log(images3);
-const arr = images2.split(' '); // https://stackoverflow.com/questions/51010849/string-to-array-node-js-javascript
-console.log(arr);
+// const images4 = objToArray.map((objToArray) => objToArray.trim());
+// console.log(images4);
+
+// let str = images2;
+// console.log(str.trim());
+
+// x.map(s => s.trim());  https:stackoverflow.com/questions/19293997/javascript-apply-trim-function-to-each-string-in-an-array
+// ------
+const arr = images2.split('<img src="'); // https://stackoverflow.com/questions/51010849/string-to-array-node-js-javascript
+for (let i = 1; i < arr.length; i++) {
+  console.log(arr[i]);
+  if (i === 10) {
+    break;
+  }
+}
+
+const links = for (let i = 1; i < arr.length; i++) {
+  if (i === 10) {
+    break;
+  }
+}
+// Finally!!! Break out of loop based on array index src= "https://betterprogramming.pub/three-ways-to-exit-an-array-loop-before-completion-in-javascript-56cc6ffff820"
+
+// console.log(arr[i]);
+// if ([arr[i] === arr.length[11]]) { https://love2dev.com/blog/javascript-for-loop-foreach/
+// if ([i === 11]) {
+//   break;
+// }
 
 // const srcArray = arr.map((functionName) => {
 //   for (let i = 0; i < 10; i++) {
@@ -121,12 +153,14 @@ console.log(arr);
 //     console.log('finished downloading!'),
 // )};
 
-/* Doonerstagabend, 09.09.2021:
+/* Donnerstagabend, 09.09.2021:
 - fixed error message appearing after memes dir has allready been created
 - fixed fetched html text not beeing shown in the console
   -> makes me wonder if it this is necessary in the first place or is it sufficient to not be shown in the console?
 - created a backup dir in the projects dir containing a fall-back version of the index.js file
 */
+
+// ------------------------------ Tests ----------------------------------
 // const testArray = 'Null ' + 'Eins ' + 'Zwei ' + 'Drei';
 // console.log(testArray[0]);
 
