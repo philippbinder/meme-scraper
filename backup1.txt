@@ -166,6 +166,7 @@ const parameter =
 
 for (let i = 0; i < 10; i++) {
   //   const url = links;
+
   https.get(parameter, (res) => {
     // Image will be stored at this path
     const path = `./memes/img${i}.jpeg`; // MUST be named path, even it has been declared earlier to be something else??
